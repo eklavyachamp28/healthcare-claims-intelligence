@@ -30,3 +30,13 @@ The training script saves `claims_model.joblib`; train before starting the API. 
 
 ## Stack
 Python · pandas · scikit-learn · joblib · FastAPI · pytest
+
+## Transformer NLP extension (optional)
+Install `pip install -r requirements-transformers.txt` to enable a **Hugging Face Transformers** zero-shot classification baseline using `facebook/bart-large-mnli`. Model weights are downloaded on first use; inference can be slow on CPU.
+
+```python
+from transformer_classifier import classify_claim
+print(classify_claim("The claim was rejected due to missing prior authorization"))
+```
+
+The extension maps predictions to six operational categories and routes low-confidence results to human review. It is a separate optional baseline from the TF-IDF model, not a fine-tuned or clinically validated system. Never submit patient-identifiable data.
