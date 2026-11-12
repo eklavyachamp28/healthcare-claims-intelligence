@@ -1,1 +1,1 @@
-# 1.-healthcare-claims-intelligence
+# healthcare-claims-intelligence
